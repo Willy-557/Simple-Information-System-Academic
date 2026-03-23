@@ -171,19 +171,18 @@ public class Main {
                                 int usia = scanner.nextInt();
                                 scanner.nextLine();
                                 
-                                System.out.print("Angkatan     : ");
-                                int angkatan = scanner.nextInt();
-                                scanner.nextLine();
+                                System.out.print("Gelar        : ");
+                                String gelar = scanner.nextLine();
                                 
-                                System.out.print("Program Studi: ");
-                                String prodi = scanner.nextLine();
+                                System.out.print("Bidang Ilmu  : ");
+                                String bidangIlmu = scanner.nextLine();
                                 
-                                String id = "MHS-00" + idMhs;
+                                String id = "DSN-00" + idDosen;
                                 
-                                mhs[ctr_arr_mhs] = new Mahasiswa(id, angkatan, prodi, nama, usia);
-                                mhs[ctr_arr_mhs].cetak();
-                                ctr_arr_mhs++;
-                                idMhs++;
+                                dosen[ctr_arr_dosen] = new Dosen(id, gelar, bidangIlmu, nama, usia);
+                                dosen[ctr_arr_dosen].cetak();
+                                ctr_arr_dosen++;
+                                idDosen++;
                             }
                         }
                     }   
