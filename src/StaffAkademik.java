@@ -69,7 +69,7 @@ public class StaffAkademik extends Person {
     public void setDokumen(String namaDokumen, Mahasiswa mhs) {
         dokumen[ctr_dok] = new IsiDokumen(namaDokumen, mhs);
         ctr_dok++;
-        
+        setDokDiproses(1);
         System.out.println(getNama() + " memproses dokumen untuk " + mhs.getNama() + ":");
         System.out.println("Dokumen  : " + namaDokumen);
         System.out.println("Dokumen berhasil diproses! Total dokumen " + getNama() + ": " + getDokDiproses());
