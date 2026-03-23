@@ -15,13 +15,24 @@ public class Mahasiswa extends Person{
     private int angkatan;
     private String prodi;
 
-    public Mahasiswa(String id, int sks, double ipk, int angkatan, String prodi, String nama, int usia) {
+    public Mahasiswa(String id, int angkatan, String prodi, String nama, int usia) {
         super(nama, usia);
         this.id = id;
         this.sks = 0;
         this.ipk = 0;
         this.angkatan = angkatan;
-        this.prodi = prodi;
+        this.prodi = prodi; 
+    }
+    
+    public void cetak() {
+        System.out.println("Mahasiswa berhasil didaftarkan!");
+        System.out.println("  ID           : " + id);
+        System.out.println("  Nama         : " + getNama());
+        System.out.println("  Usia         : " + getUsia());
+        System.out.println("  Angkatan     : " + angkatan);
+        System.out.println("  Prodi        : " + prodi);
+        System.out.println("  SKS Diambil  : " + sks);
+        System.out.println("  IPK          : " + ipk);
     }
 
     public String getId() {
