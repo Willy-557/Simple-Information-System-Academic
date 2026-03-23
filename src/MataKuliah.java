@@ -33,4 +33,5 @@ public class MataKuliah {
     public String toString() {
         return id + " | " + namaMatkul + " | " + sks + " SKS | Sem " + semester;
     }
+    
 }
