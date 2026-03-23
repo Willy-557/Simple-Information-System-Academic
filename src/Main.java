@@ -54,10 +54,10 @@ public class Main {
             
             if (menu == 5) {
                 System.out.println("=== TERIMA KASIH TELAH MENGGUNAKAN SIAKADU ===\n" +
-                                    "  Total Mata Kuliah   : 3\n" +
-                                    "  Total Mahasiswa     : 2\n" +
-                                    "  Total Dosen         : 1\n" +
-                                    "  Total Staf          : 1\n" +
+                                    "  Total Mata Kuliah   : " + ctr_arr_matkul + "\n" +
+                                    "  Total Mahasiswa     : " + ctr_arr_mhs + "\n" +
+                                    "  Total Dosen         : " + ctr_arr_dosen + "\n" +
+                                    "  Total Staf          : " + ctr_arr_staff + "\n" +
                                     "==============================\n" +
                                     "Sampai jumpa!");
                 break;
@@ -485,7 +485,7 @@ public class Main {
                                         "  Total Dosen         : " + ctr_arr_dosen + "\n" +
                                         "  Total Staf          : " + ctr_arr_staff);
                     System.out.println("");
-                    
+                    System.out.println("-- Prestasi --");
                     if (ctr_arr_mhs == 0) {
                         System.out.println("  Mahasiswa Teraktif  : -");
                     } else {
