@@ -93,7 +93,7 @@ public class Main {
                                 int sks = scanner.nextInt();
                                 scanner.nextLine();
                                 
-                                System.out.println("Semester  : ");
+                                System.out.print("Semester  : ");
                                 int semester = scanner.nextInt();
                                 scanner.nextLine();
                                 
@@ -117,7 +117,7 @@ public class Main {
                                 else {
                                     System.out.println("=== SEMUA MATA KULIAH ===");
                                     for (int i = 0; i < ctr_arr_matkul; i++) {
-                                        matkul[i].toString();
+                                        System.out.println(matkul[i].toString());
                                     }
                                 }
                             }
@@ -214,7 +214,7 @@ public class Main {
                                 }
                                 else {
                                     for (int i = 0; i < ctr_arr_mhs; i++) {
-                                        mhs[i].toString();
+                                        System.out.println(mhs[i].toString());
                                     }
                                 }
                                 System.out.println("");
@@ -224,7 +224,7 @@ public class Main {
                                 }
                                 else {
                                     for (int i = 0; i < ctr_arr_dosen; i++) {
-                                        dosen[i].toString();
+                                        System.out.println(dosen[i].toString());
                                     }
                                 }
                                 System.out.println("");
@@ -234,7 +234,7 @@ public class Main {
                                 }
                                 else {
                                     for (int i = 0; i < ctr_arr_staff; i++) {
-                                        staff[i].toString();
+                                        System.out.println(staff[i].toString());
                                     }
                                 }  
                                 System.out.println("");
@@ -269,7 +269,7 @@ public class Main {
                                 else {
                                     System.out.println("Daftar Mahasiswa:");
                                     for (int i = 0; i < ctr_arr_mhs; i++) {
-                                        mhs[i].toString();
+                                        System.out.println(mhs[i].toString());
                                     }
                                     
                                     System.out.println("Pilih ID Mahasiswa : ");
@@ -277,10 +277,12 @@ public class Main {
                                     
                                     Mahasiswa ditemukanMhs = null;
                                     boolean mhsDitemukan = false;
+                                    int noIndexMhs = -1;
                                     for (int i = 0; i < ctr_arr_mhs; i++) {
                                         if (mhs[i].getId().equals(idMhsDicari)) {
                                             ditemukanMhs = mhs[i];
                                             mhsDitemukan = true;
+                                            noIndexMhs = i;
                                             break;
                                         }
                                     }
@@ -289,7 +291,49 @@ public class Main {
                                         System.out.println("Mahasiswa dengan ID '" + idMhsDicari + "' tidak ditemukan!");
                                     }
                                     else {
-                                       
+                                        if (ctr_arr_matkul == 0) {
+                                           System.out.println("Daftar Mata Kuliah masih kosong!");
+                                        }
+                                        else {
+                                            for (int i = 0; i < ctr_arr_matkul; i++) {
+                                                System.out.println(matkul[i].toString());
+                                            }
+
+                                            System.out.println("Pilih ID MK : ");
+                                            String IDMKDicari = scanner.nextLine();
+
+                                            boolean MKDitemukan = false;
+                                            MataKuliah ditemukanMK = null;
+                                            for (int i = 0; i < ctr_arr_matkul; i++) {
+                                                if (matkul[i].getId().equals(IDMKDicari)) {
+                                                    MKDitemukan = true;
+                                                    ditemukanMK = matkul[i];
+                                                    break;
+                                                }
+                                            }
+
+                                            if (!MKDitemukan) {
+                                                System.out.println("Mata Kuliah dengan ID '" + IDMKDicari + "' tidak ditemukan!");
+                                            }
+                                            else {
+                                                int totalSks = mhs[noIndexMhs].getSks() + ditemukanMK.getSks();
+                                                if (totalSks <= 24) {
+                                                    boolean pengecekan = mhs[noIndexMhs].cekPengambilanMK(ditemukanMK.getNamaMatkul());
+                                                    
+                                                    if (pengecekan) {
+                                                        System.out.println("  " + mhs[noIndexMhs].getNama() + "sudah mengambil " + ditemukanMK.getNamaMatkul() + " sebelumnya!");
+                                                    }
+                                                    else {
+                                                        mhs[noIndexMhs].setSks(ditemukanMK.getSks());
+                                                        mhs[noIndexMhs].setMatkul(ditemukanMK);
+                                                    }
+                                                }
+                                                else {
+                                                    System.out.println("  Total SKS melebihi batas! Maksimal 24 SKS.");
+                                                    System.out.println("  SKS saat ini: " + mhs[noIndexMhs].getSks() + ", MK ini: " + ditemukanMK.getSks() + " SKS.");
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
