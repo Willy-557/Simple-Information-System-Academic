@@ -214,7 +214,7 @@ public class Main {
                                 }
                                 else {
                                     for (int i = 0; i < ctr_arr_mhs; i++) {
-                                        System.out.println(mhs[i].toString());
+                                    System.out.println(mhs[i].toString());
                                     }
                                 }
                                 System.out.println("");
@@ -272,7 +272,7 @@ public class Main {
                                         System.out.println(mhs[i].toString());
                                     }
                                     
-                                    System.out.println("Pilih ID Mahasiswa : ");
+                                    System.out.print("Pilih ID Mahasiswa : ");
                                     String idMhsDicari = scanner.nextLine();
                                     
                                     Mahasiswa ditemukanMhs = null;
@@ -299,7 +299,7 @@ public class Main {
                                                 System.out.println(matkul[i].toString());
                                             }
 
-                                            System.out.println("Pilih ID MK : ");
+                                            System.out.print("Pilih ID MK : ");
                                             String IDMKDicari = scanner.nextLine();
 
                                             boolean MKDitemukan = false;
@@ -321,7 +321,7 @@ public class Main {
                                                     boolean pengecekan = mhs[noIndexMhs].cekPengambilanMK(ditemukanMK.getNamaMatkul());
                                                     
                                                     if (pengecekan) {
-                                                        System.out.println("  " + mhs[noIndexMhs].getNama() + "sudah mengambil " + ditemukanMK.getNamaMatkul() + " sebelumnya!");
+                                                        System.out.println("  " + mhs[noIndexMhs].getNama() + " sudah mengambil " + ditemukanMK.getNamaMatkul() + " sebelumnya!");
                                                     }
                                                     else {
                                                         mhs[noIndexMhs].setSks(ditemukanMK.getSks());
