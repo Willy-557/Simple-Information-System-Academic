@@ -80,6 +80,9 @@ public class Dosen extends Person{
     public void setMatkulYangDiajar(MataKuliah mk) {
         matkulYangDiajar[matkul_count] = mk;
         matkul_count++;
+        
+        System.out.println(getNama() + " ditugaskan mengajar: " + mk.getNamaMatkul());
+        System.out.println("Total MK diajar " + getNama() + ": " + MKDiajar);
     }
 
     public int getMatkul_count() {
