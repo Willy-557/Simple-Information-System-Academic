@@ -92,7 +92,7 @@ public class Mahasiswa extends Person{
     public void setMatkul(MataKuliah mk) {
         matkul[matkul_count] = mk;
         matkul_count++;
-        
+        setSks(mk.getSks());
         System.out.println("  " + getNama() + " berhasil mengambil: " + mk.getNamaMatkul());
         System.out.println("  SKS bertambah: +" + mk.getSks() + " (Total SKS: " + getSks() + ")");
     }
