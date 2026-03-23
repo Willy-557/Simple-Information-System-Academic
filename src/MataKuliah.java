@@ -33,5 +33,39 @@ public class MataKuliah {
     public String toString() {
         return id + " | " + namaMatkul + " | " + sks + " SKS | Sem " + semester;
     }
+
+    public String getNamaMatkul() {
+        return namaMatkul;
+    }
+
+    public void setNamaMatkul(String namaMatkul) {
+        this.namaMatkul = namaMatkul;
+    }
+
+    public int getSks() {
+        return sks;
+    }
+
+    public void setSks(int sks) {
+        this.sks = sks;
+    }
+
+    public int getSemester() {
+        return semester;
+    }
+
+    public void setSemester(int semester) {
+        this.semester = semester;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    
     
 }
