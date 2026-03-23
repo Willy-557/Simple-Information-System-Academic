@@ -10,7 +10,7 @@
  */
 public class StaffAkademik extends Person {
     private int dokDiproses;
-    private String divisi
+    private String divisi;
     private String id;
 
     public StaffAkademik(String divisi, String id, String nama, int usia) {
