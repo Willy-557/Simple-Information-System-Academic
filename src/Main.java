@@ -214,7 +214,7 @@ public class Main {
                                 }
                                 else {
                                     for (int i = 0; i < ctr_arr_mhs; i++) {
-
+                                        mhs[i].toString();
                                     }
                                 }
                                 System.out.println("");
@@ -223,8 +223,8 @@ public class Main {
                                     System.out.println("Belum menambahkan Dosen!");
                                 }
                                 else {
-                                    for (int i = 0; i < ctr_arr_mhs; i++) {
-
+                                    for (int i = 0; i < ctr_arr_dosen; i++) {
+                                        dosen[i].toString();
                                     }
                                 }
                                 System.out.println("");
@@ -233,8 +233,8 @@ public class Main {
                                     System.out.println("Belum menambahkan Staff Akademik!");
                                 }
                                 else {
-                                    for (int i = 0; i < ctr_arr_mhs; i++) {
-
+                                    for (int i = 0; i < ctr_arr_staff; i++) {
+                                        staff[i].toString();
                                     }
                                 }  
                                 System.out.println("");
