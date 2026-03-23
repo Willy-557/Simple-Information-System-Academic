@@ -20,6 +20,10 @@ public class Main {
         int ctr_arr_matkul = 0;
         int idMatkul = 1;
         
+        Mahasiswa[] mhs = new Mahasiswa[10];
+        int ctr_arr_mhs = 0;
+        int idMhs = 1;
+        
         while (true) {
             System.out.println("==============================\n" +
                                 "          SIAKADU\n" +
@@ -123,6 +127,7 @@ public class Main {
 
                         System.out.print(">> ");
                         int menu2 = scanner.nextInt();
+                        scanner.nextLine();
 
                         if (menu2 == 0) {
                                 break;
@@ -133,6 +138,28 @@ public class Main {
                         }
                         else {
                             if (menu2 == 1) {
+                                System.out.print("Nama         : ");
+                                String nama = scanner.nextLine();
+                                
+                                System.out.print("Usia         : ");
+                                int usia = scanner.nextInt();
+                                scanner.nextLine();
+                                
+                                System.out.print("Angkatan     : ");
+                                int angkatan = scanner.nextInt();
+                                scanner.nextLine();
+                                
+                                System.out.print("Program Studi: ");
+                                String prodi = scanner.nextLine();
+                                
+                                String id = "MHS-00" + idMhs;
+                                
+                                mhs[ctr_arr_mhs] = new Mahasiswa(id, angkatan, prodi, nama, usia);
+                                mhs[ctr_arr_mhs].cetak();
+                                ctr_arr_mhs++;
+                                idMhs++;
+                            }
+                            else if (menu2 == 2) {
                                 
                             }
                         }
