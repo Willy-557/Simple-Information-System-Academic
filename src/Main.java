@@ -397,8 +397,8 @@ public class Main {
                                                     System.out.println("  " + dosen[noIndexDosen].getNama() + " sudah mengajar " + ditemukanMK.getNamaMatkul() + "! ");
                                                 }
                                                 else {
-                                                    dosen[noIndexDosen].setMatkulYangDiajar(ditemukanMK);
                                                     dosen[noIndexDosen].setMKDiajar(1);
+                                                    dosen[noIndexDosen].setMatkulYangDiajar(ditemukanMK);
                                                 }
                                             }
                                         }
