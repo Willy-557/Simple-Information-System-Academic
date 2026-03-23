@@ -24,6 +24,10 @@ public class Main {
         int ctr_arr_mhs = 0;
         int idMhs = 1;
         
+        Dosen[] dosen = new Dosen[10];
+        int ctr_arr_dosen = 0;
+        int idDosen = 1;
+        
         while (true) {
             System.out.println("==============================\n" +
                                 "          SIAKADU\n" +
@@ -160,7 +164,26 @@ public class Main {
                                 idMhs++;
                             }
                             else if (menu2 == 2) {
+                                System.out.print("Nama         : ");
+                                String nama = scanner.nextLine();
                                 
+                                System.out.print("Usia         : ");
+                                int usia = scanner.nextInt();
+                                scanner.nextLine();
+                                
+                                System.out.print("Angkatan     : ");
+                                int angkatan = scanner.nextInt();
+                                scanner.nextLine();
+                                
+                                System.out.print("Program Studi: ");
+                                String prodi = scanner.nextLine();
+                                
+                                String id = "MHS-00" + idMhs;
+                                
+                                mhs[ctr_arr_mhs] = new Mahasiswa(id, angkatan, prodi, nama, usia);
+                                mhs[ctr_arr_mhs].cetak();
+                                ctr_arr_mhs++;
+                                idMhs++;
                             }
                         }
                     }   
