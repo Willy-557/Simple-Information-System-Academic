@@ -72,7 +72,7 @@ public class StaffAkademik extends Person {
         
         System.out.println(getNama() + " memproses dokumen untuk " + mhs.getNama() + ":");
         System.out.println("Dokumen  : " + namaDokumen);
-        System.out.println("Dokumen berhasil diproses! Total dokumen Sari: " + getDokDiproses());
+        System.out.println("Dokumen berhasil diproses! Total dokumen " + getNama() + ": " + getDokDiproses());
     }
 
     public int getCtr_dok() {
