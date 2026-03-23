@@ -12,12 +12,16 @@ public class StaffAkademik extends Person {
     private int dokDiproses;
     private String divisi;
     private String id;
+    
+    private IsiDokumen[] dokumen;
+    private int ctr_dok = 0;
 
     public StaffAkademik(String divisi, String id, String nama, int usia) {
         super(nama, usia);
         this.dokDiproses = 0;
         this.divisi = divisi;
         this.id = id;
+        this.dokumen = new IsiDokumen[10];
     }
     
     public void cetak() {
@@ -39,7 +43,7 @@ public class StaffAkademik extends Person {
     }
 
     public void setDokDiproses(int dokDiproses) {
-        this.dokDiproses = dokDiproses;
+        this.dokDiproses += dokDiproses;
     }
 
     public String getDivisi() {
@@ -57,6 +61,25 @@ public class StaffAkademik extends Person {
     public void setId(String id) {
         this.id = id;
     }
-    
-    
+
+    public IsiDokumen[] getDokumen() {
+        return dokumen;
+    }
+
+    public void setDokumen(String namaDokumen, Mahasiswa mhs) {
+        dokumen[ctr_dok] = new IsiDokumen(namaDokumen, mhs);
+        ctr_dok++;
+        
+        System.out.println(getNama() + " memproses dokumen untuk " + mhs.getNama() + ":");
+        System.out.println("Dokumen  : " + namaDokumen);
+        System.out.println("Dokumen berhasil diproses! Total dokumen Sari: " + getDokDiproses());
+    }
+
+    public int getCtr_dok() {
+        return ctr_dok;
+    }
+
+    public void setCtr_dok(int ctr_dok) {
+        this.ctr_dok = ctr_dok;
+    }
 }
