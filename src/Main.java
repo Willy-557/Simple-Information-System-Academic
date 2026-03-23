@@ -78,13 +78,6 @@ public class Main {
                         scanner.nextLine();
 
                         if (menu1 == 0) {
-                            System.out.println("=== TERIMA KASIH TELAH MENGGUNAKAN SIAKADU ===\n" +
-                                                "  Total Mata Kuliah   : " + ctr_arr_matkul + "\n" +
-                                                "  Total Mahasiswa     : " + ctr_arr_mhs + "\n" +
-                                                "  Total Dosen         : " + ctr_arr_dosen + "\n" +
-                                                "  Total Staf          : " + ctr_arr_staff + "\n" +
-                                                "==============================\n" +
-                                                "Sampai jumpa!");
                             break;
                         }
                         else if (menu1 > 2 || menu1 < 0) {
@@ -206,7 +199,7 @@ public class Main {
                                 System.out.print("Divisi       : ");
                                 String divisi = scanner.nextLine();
                                 
-                                String id = "STF-00" + idDosen;
+                                String id = "STF-00" + idStaff;
                                 
                                 staff[ctr_arr_staff] = new StaffAkademik(divisi, id, nama, usia);
                                 staff[ctr_arr_staff].cetak();
@@ -331,7 +324,6 @@ public class Main {
                                                         System.out.println("  " + mhs[noIndexMhs].getNama() + " sudah mengambil " + ditemukanMK.getNamaMatkul() + " sebelumnya!");
                                                     }
                                                     else {
-                                                        mhs[noIndexMhs].setSks(ditemukanMK.getSks());
                                                         mhs[noIndexMhs].setMatkul(ditemukanMK);
                                                     }
                                                 }
@@ -404,7 +396,6 @@ public class Main {
                                                     System.out.println("  " + dosen[noIndexDosen].getNama() + " sudah mengajar " + ditemukanMK.getNamaMatkul() + "! ");
                                                 }
                                                 else {
-                                                    dosen[noIndexDosen].setMKDiajar(1);
                                                     dosen[noIndexDosen].setMatkulYangDiajar(ditemukanMK);
                                                 }
                                             }
@@ -469,7 +460,6 @@ public class Main {
                                                 System.out.print("Nama Dokumen : ");
                                                 String namaDokumenMhs = scanner.nextLine();
                                                 
-                                                staff[noIndexStaff].setDokDiproses(1);
                                                 staff[noIndexStaff].setDokumen(namaDokumenMhs, ditemukanMhs);
                                             }
                                         }
@@ -495,54 +485,43 @@ public class Main {
                                         "  Total Dosen         : " + ctr_arr_dosen + "\n" +
                                         "  Total Staf          : " + ctr_arr_staff);
                     System.out.println("");
-                    Mahasiswa ditemukan1 = null;
-                    Dosen ditemukan2 = null;
-                    StaffAkademik ditemukan3 = null;
-                    for (int i = 0; i < ctr_arr_mhs; i++) {
-                        if (mhs[i].getSks() > mhs[i+1].getSks()) {
-                            ditemukan1 = mhs[i];
-                        }
-                        else {
-                            ditemukan1 = mhs[i+1];
-                        }
-                    }
-                    for (int i = 0; i < ctr_arr_dosen; i++) {
-                        if (dosen[i].getMKDiajar() > dosen[i+1].getMKDiajar()) {
-                            ditemukan2 = dosen[i];
-                        }
-                        else {
-                            ditemukan2 = dosen[i+1];
-                        }
-                    }
-                    for (int i = 0; i < ctr_arr_staff; i++) {
-                        if (staff[i].getDokDiproses() > staff[i+1].getDokDiproses()) {
-                            ditemukan3 = staff[i];
-                        }
-                        else {
-                            ditemukan3 = staff[i+1];
-                        }
-                    }
-                    System.out.println("-- Prestasi --");
-                    if (ditemukan1 == null) {
+                    
+                    if (ctr_arr_mhs == 0) {
                         System.out.println("  Mahasiswa Teraktif  : -");
-                    }
-                    else {
-                        System.out.println("  Mahasiswa Teraktif  : " + ditemukan1.getNama() + " (" + ditemukan1.getSks() + " SKS)");
+                    } else {
+                        Mahasiswa teraktif1 = mhs[0];
+                        for (int i = 1; i < ctr_arr_mhs; i++) {
+                            if (mhs[i].getSks() > teraktif1.getSks()) {
+                                teraktif = mhs[i];
+                            }
+                        }
+                        System.out.println("  Mahasiswa Teraktif  : " + teraktif.getNama() + " (" + teraktif.getSks() + " SKS)");
                     }
                     
-                    if (ditemukan2 == null) {
+                    if (ctr_arr_dosen == 0) {
                         System.out.println("  Dosen Teraktif      : -");
-                    }
-                    else {
-                        System.out.println("  Dosen Teraktif      : " + ditemukan2.getNama() + " (" + ditemukan2.getMKDiajar() + " MK)");
+                    } else {
+                        Dosen teraktif2 = dosen[0];
+                        for (int i = 1; i < ctr_arr_dosen; i++) {
+                            if (dosen[i].getMKDiajar() > teraktif2.getMKDiajar()) {
+                                teraktif2 = dosen[i];
+                            }
+                        }
+                        System.out.println("  Dosen Teraktif      : " + teraktif2.getNama() + " (" + teraktif2.getMKDiajar() + " MK)");
                     }
                     
-                    if (ditemukan3 == null) {
+                    if (ctr_arr_staff == 0) {
                         System.out.println("  Staf Teraktif       : -");
+                    } else {
+                        StaffAkademik teraktif3 = staff[0];
+                        for (int i = 1; i < ctr_arr_staff; i++) {
+                            if (staff[i].getDokDiproses() > teraktif3.getDokDiproses()) {
+                                teraktif3 = staff[i];
+                            }
+                        }
+                        System.out.println("  Staf Teraktif       : " + teraktif3.getNama() + " (" + teraktif3.getDokDiproses() + " dokumen)");
                     }
-                    else {
-                        System.out.println("  Staf Teraktif       : " + ditemukan3.getNama() + " (" + ditemukan3.getDokDiproses() + " dokumen)");
-                    }
+                    
                 }
             }
         }
