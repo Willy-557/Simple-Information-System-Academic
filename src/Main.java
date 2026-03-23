@@ -206,6 +206,39 @@ public class Main {
                                 ctr_arr_staff++;
                                 idStaff++;
                             }
+                            else if (menu2 == 4) {
+                                System.out.println("=== SEMUA CIVITAS ===");
+                                System.out.println("-- Mahasiswa --");
+                                if (ctr_arr_mhs == 0) {
+                                    System.out.println("Belum menambahkan Mahasiswa!");
+                                }
+                                else {
+                                    for (int i = 0; i < ctr_arr_mhs; i++) {
+
+                                    }
+                                }
+                                System.out.println("");
+                                System.out.println("-- Dosen --");
+                                if (ctr_arr_dosen == 0) {
+                                    System.out.println("Belum menambahkan Dosen!");
+                                }
+                                else {
+                                    for (int i = 0; i < ctr_arr_mhs; i++) {
+
+                                    }
+                                }
+                                System.out.println("");
+                                System.out.println("-- Staff Akademik --");
+                                if (ctr_arr_staff == 0) {
+                                    System.out.println("Belum menambahkan Staff Akademik!");
+                                }
+                                else {
+                                    for (int i = 0; i < ctr_arr_mhs; i++) {
+
+                                    }
+                                }  
+                                System.out.println("");
+                            }
                         }
                     }   
                 }
