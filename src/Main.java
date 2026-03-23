@@ -1,0 +1,119 @@
+
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author William
+ */
+public class Main {
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner (System.in);
+        
+        MataKuliah[] matkul = new MataKuliah[10];
+        int ctr_arr_matkul = 0;
+        int idMatkul = 1;
+        
+        while (true) {
+            System.out.println("==============================\n" +
+                                "          SIAKADU\n" +
+                                "  Sistem Informasi Akademik\n" +
+                                "==============================");
+            System.out.println("");
+            System.out.println("==============================\n" +
+                                "          SIAKADU\n" +
+                                "==============================\n" +
+                                "  1. Kelola Mata Kuliah\n" +
+                                "  2. Kelola Civitas\n" +
+                                "  3. Aktivitas\n" +
+                                "  4. Laporan\n" +
+                                "  5. Exit\n" +
+                                "==============================");
+            
+            System.out.print(">> ");
+            int menu = scanner.nextInt();
+            scanner.nextLine();
+            
+            if (menu == 5) {
+                System.out.println("=== TERIMA KASIH TELAH MENGGUNAKAN SIAKADU ===\n" +
+                                    "  Total Mata Kuliah   : 3\n" +
+                                    "  Total Mahasiswa     : 2\n" +
+                                    "  Total Dosen         : 1\n" +
+                                    "  Total Staf          : 1\n" +
+                                    "==============================\n" +
+                                    "Sampai jumpa!");
+                break;
+            }
+            else if (menu > 5 || menu < 1) {
+                System.out.println("Error");
+                continue;
+            }
+            else {
+                if (menu == 1) {
+                    while (true) {
+                        System.out.println("=== KELOLA MATA KULIAH ===\n" +
+                                            "  1. Tambah Mata Kuliah\n" +
+                                            "  2. Lihat Semua Mata Kuliah\n" +
+                                            "  0. Kembali");
+                        System.out.print(">> ");
+                        int menu1 = scanner.nextInt();
+                        scanner.nextLine();
+
+                        if (menu1 == 0) {
+                            break;
+                        }
+                        else if (menu1 > 2 || menu1 < 0) {
+                            System.out.println("Error");
+                            continue;
+                        }
+                        else {
+                            if (menu1 == 1) {
+                                System.out.print("Nama MK   : ");
+                                String namaMatkul = scanner.nextLine();
+                                
+                                System.out.print("SKS       : ");
+                                int sks = scanner.nextInt();
+                                scanner.nextLine();
+                                
+                                System.out.println("Semester  : ");
+                                int semester = scanner.nextInt();
+                                scanner.nextLine();
+                                
+                                if (sks > 4 || sks < 1) {
+                                    System.out.println("SKS harus antara 1-4. Masukkan ulang.");
+                                    continue;
+                                }
+                                else {
+                                    String id = "MK-00" + idMatkul;
+                                    
+                                    matkul[ctr_arr_matkul] = new MataKuliah(namaMatkul, sks, semester, id);
+                                    matkul[ctr_arr_matkul].cetak();
+                                    ctr_arr_matkul++;
+                                    idMatkul++;
+                                }
+                            }
+                            else if (menu1 == 2) {
+                                if (ctr_arr_matkul == 0) {
+                                    System.out.println("Masih belum menambahkan matkul");
+                                }
+                                else {
+                                    System.out.println("=== SEMUA MATA KULIAH ===");
+                                    for (int i = 0; i < ctr_arr_matkul; i++) {
+                                        matkul[i].toString();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
