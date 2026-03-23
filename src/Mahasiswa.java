@@ -14,6 +14,9 @@ public class Mahasiswa extends Person{
     private double ipk;
     private int angkatan;
     private String prodi;
+    
+    private MatkulMahasiswa[] matkul;
+    private int matkul_count;
 
     public Mahasiswa(String id, int angkatan, String prodi, String nama, int usia) {
         super(nama, usia);
@@ -22,6 +25,7 @@ public class Mahasiswa extends Person{
         this.ipk = 0;
         this.angkatan = angkatan;
         this.prodi = prodi; 
+        this.matkul = new MatkulMahasiswa[10];
     }
     
     public void cetak() {
@@ -80,7 +84,20 @@ public class Mahasiswa extends Person{
     public void setProdi(String prodi) {
         this.prodi = prodi;
     }
-    
-    
-    
+
+    public MatkulMahasiswa[] getMatkul() {
+        return matkul;
+    }
+
+    public void setMatkul(MatkulMahasiswa[] matkul) {
+        this.matkul = matkul;
+    }
+
+    public int getMatkul_count() {
+        return matkul_count;
+    }
+
+    public void setMatkul_count(int matkul_count) {
+        this.matkul_count = matkul_count;
+    }
 }
