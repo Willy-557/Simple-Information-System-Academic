@@ -23,7 +23,7 @@ public class Dosen extends Person{
     }
     
     public void cetak() {
-        System.out.println("Mahasiswa berhasil didaftarkan!");
+        System.out.println("Dosen berhasil didaftarkan!");
         System.out.println("  ID           : " + id);
         System.out.println("  Nama         : " + getNama());
         System.out.println("  Usia         : " + getUsia());
