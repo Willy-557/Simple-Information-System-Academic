@@ -101,4 +101,14 @@ public class Mahasiswa extends Person{
     public void setMatkul_count(int matkul_count) {
         this.matkul_count = matkul_count;
     }
+    
+    public boolean cekPengambilanMK(String namaMK) {
+        boolean cek = false;
+        for (int i = 0; i < matkul_count; i++) {
+            if (matkul[i].getNamaMatkul().equals(namaMK)) {
+                cek = true;
+            }
+        }
+        return cek;
+    }
 }
