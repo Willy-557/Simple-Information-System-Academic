@@ -13,6 +13,9 @@ public class Dosen extends Person{
     private String gelar;
     private String bidangIlmu;
     private int MKDiajar;
+    
+    private MataKuliah[] matkulYangDiajar;
+    private int matkul_count = 0;
 
     public Dosen(String id, String gelar, String bidangIlmu, String nama, int usia) {
         super(nama, usia);
@@ -20,6 +23,7 @@ public class Dosen extends Person{
         this.gelar = gelar;
         this.bidangIlmu = bidangIlmu;
         this.MKDiajar = 0;
+        this.matkulYangDiajar = new MataKuliah[20];
     }
     
     public void cetak() {
@@ -66,9 +70,34 @@ public class Dosen extends Person{
     }
 
     public void setMKDiajar(int MKDiajar) {
-        this.MKDiajar = MKDiajar;
+        this.MKDiajar += MKDiajar;
+    }
+
+    public MataKuliah[] getMatkulYangDiajar() {
+        return matkulYangDiajar;
+    }
+
+    public void setMatkulYangDiajar(MataKuliah mk) {
+        matkulYangDiajar[matkul_count] = mk;
+        matkul_count++;
+    }
+
+    public int getMatkul_count() {
+        return matkul_count;
+    }
+
+    public void setMatkul_count(int matkul_count) {
+        this.matkul_count = matkul_count;
     }
     
-    
+    public boolean cekMatkulDiajar(String namaMatkul) {
+        boolean cek = false;
+        for (int i = 0; i < matkul_count; i++) {
+            if (matkulYangDiajar[i].getNamaMatkul().equals(namaMatkul)) {
+                cek = true;
+            }
+        }
+        return cek;
+    }
     
 }
