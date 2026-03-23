@@ -78,6 +78,13 @@ public class Main {
                         scanner.nextLine();
 
                         if (menu1 == 0) {
+                            System.out.println("=== TERIMA KASIH TELAH MENGGUNAKAN SIAKADU ===\n" +
+                                                "  Total Mata Kuliah   : " + ctr_arr_matkul + "\n" +
+                                                "  Total Mahasiswa     : " + ctr_arr_mhs + "\n" +
+                                                "  Total Dosen         : " + ctr_arr_dosen + "\n" +
+                                                "  Total Staf          : " + ctr_arr_staff + "\n" +
+                                                "==============================\n" +
+                                                "Sampai jumpa!");
                             break;
                         }
                         else if (menu1 > 2 || menu1 < 0) {
@@ -400,6 +407,70 @@ public class Main {
                                                     dosen[noIndexDosen].setMKDiajar(1);
                                                     dosen[noIndexDosen].setMatkulYangDiajar(ditemukanMK);
                                                 }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            else if (menu3 == 3) {
+                                if (ctr_arr_staff == 0) {
+                                    System.out.println("Belum menambahkan Staff!");
+                                }
+                                else {
+                                    System.out.println("Daftar Staff:");
+                                    for (int i = 0; i < ctr_arr_staff; i++) {
+                                        System.out.println(staff[i].toString());
+                                    }
+                                    
+                                    System.out.print("Pilih ID Staff : ");
+                                    String idStaffDicari = scanner.nextLine();
+                                    
+                                    StaffAkademik ditemukanStaff = null;
+                                    boolean staffDitemukan = false;
+                                    int noIndexStaff = -1;
+                                    for (int i = 0; i < ctr_arr_staff; i++) {
+                                        if (staff[i].getId().equals(idStaffDicari)) {
+                                            ditemukanStaff = staff[i];
+                                            staffDitemukan = true;
+                                            noIndexStaff = i;
+                                            break;
+                                        }
+                                    }
+                                    
+                                    if(!staffDitemukan) {
+                                        System.out.println("Staff dengan ID '" + idStaffDicari + "' tidak ditemukan!");
+                                    }
+                                    else {
+                                        if (ctr_arr_mhs == 0) {
+                                           System.out.println("Mahasiswa masih kosong!");
+                                        }
+                                        else {
+                                            for (int i = 0; i < ctr_arr_mhs; i++) {
+                                                System.out.println(mhs[i].toString());
+                                            }
+
+                                            System.out.print("Pilih ID Mahasiswa : ");
+                                            String IDMhsDicari = scanner.nextLine();
+
+                                            boolean MhsDitemukan = false;
+                                            Mahasiswa ditemukanMhs = null;
+                                            for (int i = 0; i < ctr_arr_mhs; i++) {
+                                                if (mhs[i].getId().equals(IDMhsDicari)) {
+                                                    MhsDitemukan = true;
+                                                    ditemukanMhs = mhs[i];
+                                                    break;
+                                                }
+                                            }
+
+                                            if (!MhsDitemukan) {
+                                                System.out.println("Mahasiswa dengan ID '" + IDMhsDicari + "' tidak ditemukan!");
+                                            }
+                                            else {
+                                                System.out.print("Nama Dokumen : ");
+                                                String namaDokumenMhs = scanner.nextLine();
+                                                
+                                                staff[noIndexStaff].setDokDiproses(1);
+                                                staff[noIndexStaff].setDokumen(namaDokumenMhs, ditemukanMhs);
                                             }
                                         }
                                     }
