@@ -35,6 +35,12 @@ public class Mahasiswa extends Person{
         System.out.println("  IPK          : " + ipk);
     }
 
+    @Override
+    public String toString() {
+        return id + " | " + getNama() + " | Angkatan: " + angkatan + " | Prodi: " + prodi + " | SKS: " + sks + " | IPK: " + ipk;
+    }
+    
+
     public String getId() {
         return id;
     }
