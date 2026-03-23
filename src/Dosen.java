@@ -32,6 +32,11 @@ public class Dosen extends Person{
         System.out.println("  MK Diajar    : " + MKDiajar);
     }
 
+    @Override
+    public String toString() {
+        return id + " | " + getNama() + " | " + bidangIlmu + " | MK Diajar: " + MKDiajar;
+    }
+
     public String getId() {
         return id;
     }
