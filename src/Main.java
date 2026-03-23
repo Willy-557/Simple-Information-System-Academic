@@ -479,8 +479,72 @@ public class Main {
                         }
                     }    
                 }
+                else if (menu == 4) {
+                    System.out.println("=== LAPORAN SIAKADU ===");
+                    System.out.println("");
+                    int totalSKS = 0;
+                    for (int i = 0; i < ctr_arr_matkul; i++) {
+                        totalSKS += matkul[i].getSks();
+                    }
+                    System.out.println("-- Akademik --\n" +
+                                        "  Total Mata Kuliah   : " + ctr_arr_matkul + "\n" +
+                                        "  Total SKS Tersedia  : " + totalSKS);
+                    System.out.println("");
+                    System.out.println("-- Civitas --\n" +
+                                        "  Total Mahasiswa     : " + ctr_arr_mhs + "\n" +
+                                        "  Total Dosen         : " + ctr_arr_dosen + "\n" +
+                                        "  Total Staf          : " + ctr_arr_staff);
+                    System.out.println("");
+                    Mahasiswa ditemukan1 = null;
+                    Dosen ditemukan2 = null;
+                    StaffAkademik ditemukan3 = null;
+                    for (int i = 0; i < ctr_arr_mhs; i++) {
+                        if (mhs[i].getSks() > mhs[i+1].getSks()) {
+                            ditemukan1 = mhs[i];
+                        }
+                        else {
+                            ditemukan1 = mhs[i+1];
+                        }
+                    }
+                    for (int i = 0; i < ctr_arr_dosen; i++) {
+                        if (dosen[i].getMKDiajar() > dosen[i+1].getMKDiajar()) {
+                            ditemukan2 = dosen[i];
+                        }
+                        else {
+                            ditemukan2 = dosen[i+1];
+                        }
+                    }
+                    for (int i = 0; i < ctr_arr_staff; i++) {
+                        if (staff[i].getDokDiproses() > staff[i+1].getDokDiproses()) {
+                            ditemukan3 = staff[i];
+                        }
+                        else {
+                            ditemukan3 = staff[i+1];
+                        }
+                    }
+                    System.out.println("-- Prestasi --");
+                    if (ditemukan1 == null) {
+                        System.out.println("  Mahasiswa Teraktif  : -");
+                    }
+                    else {
+                        System.out.println("  Mahasiswa Teraktif  : " + ditemukan1.getNama() + " (" + ditemukan1.getSks() + " SKS)");
+                    }
+                    
+                    if (ditemukan2 == null) {
+                        System.out.println("  Dosen Teraktif      : -");
+                    }
+                    else {
+                        System.out.println("  Dosen Teraktif      : " + ditemukan2.getNama() + " (" + ditemukan2.getMKDiajar() + " MK)");
+                    }
+                    
+                    if (ditemukan3 == null) {
+                        System.out.println("  Staf Teraktif       : -");
+                    }
+                    else {
+                        System.out.println("  Staf Teraktif       : " + ditemukan3.getNama() + " (" + ditemukan3.getDokDiproses() + " dokumen)");
+                    }
+                }
             }
         }
     }
-    
 }
