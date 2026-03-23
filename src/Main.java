@@ -242,6 +242,60 @@ public class Main {
                         }
                     }   
                 }
+                else if (menu == 3) {
+                    while (true) {
+                        System.out.println("=== AKTIVITAS ===\n" +
+                                            "  1. Mahasiswa Ambil Mata Kuliah\n" +
+                                            "  2. Dosen Mengajar Mata Kuliah\n" +
+                                            "  3. Staf Proses Dokumen Mahasiswa\n" +
+                                            "  0. Kembali");
+
+                        System.out.print(">> ");
+                        int menu3 = scanner.nextInt();
+                        scanner.nextLine();
+
+                        if (menu3 == 0) {
+                            break;
+                        }
+                        else if (menu3 > 3 || menu3 < 0) {
+                            System.out.println("Error");
+                            continue;
+                        }
+                        else {
+                            if (menu3 == 1) {
+                                if (ctr_arr_mhs == 0) {
+                                    System.out.println("Belum menambahkan Mahasiswa!");
+                                }
+                                else {
+                                    System.out.println("Daftar Mahasiswa:");
+                                    for (int i = 0; i < ctr_arr_mhs; i++) {
+                                        mhs[i].toString();
+                                    }
+                                    
+                                    System.out.println("Pilih ID Mahasiswa : ");
+                                    String idMhsDicari = scanner.nextLine();
+                                    
+                                    Mahasiswa ditemukanMhs = null;
+                                    boolean mhsDitemukan = false;
+                                    for (int i = 0; i < ctr_arr_mhs; i++) {
+                                        if (mhs[i].getId().equals(idMhsDicari)) {
+                                            ditemukanMhs = mhs[i];
+                                            mhsDitemukan = true;
+                                            break;
+                                        }
+                                    }
+                                    
+                                    if(!mhsDitemukan) {
+                                        System.out.println("Mahasiswa dengan ID '" + idMhsDicari + "' tidak ditemukan!");
+                                    }
+                                    else {
+                                       
+                                    }
+                                }
+                            }
+                        }
+                    }    
+                }
             }
         }
     }
