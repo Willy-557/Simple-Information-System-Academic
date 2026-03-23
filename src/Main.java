@@ -337,6 +337,74 @@ public class Main {
                                     }
                                 }
                             }
+                            else if (menu3 == 2) {
+                                if (ctr_arr_dosen == 0) {
+                                    System.out.println("Belum menambahkan Dosen!");
+                                }
+                                else {
+                                    System.out.println("Daftar Dosen:");
+                                    for (int i = 0; i < ctr_arr_dosen; i++) {
+                                        System.out.println(dosen[i].toString());
+                                    }
+                                    
+                                    System.out.print("Pilih ID Dosen : ");
+                                    String idDosenDicari = scanner.nextLine();
+                                    
+                                    Dosen ditemukanDosen = null;
+                                    boolean dosenDitemukan = false;
+                                    int noIndexDosen = -1;
+                                    for (int i = 0; i < ctr_arr_dosen; i++) {
+                                        if (dosen[i].getId().equals(idDosenDicari)) {
+                                            ditemukanDosen = dosen[i];
+                                            dosenDitemukan = true;
+                                            noIndexDosen = i;
+                                            break;
+                                        }
+                                    }
+                                    
+                                    if(!dosenDitemukan) {
+                                        System.out.println("Dosen dengan ID '" + idDosenDicari + "' tidak ditemukan!");
+                                    }
+                                    else {
+                                        if (ctr_arr_matkul == 0) {
+                                           System.out.println("Daftar Mata Kuliah masih kosong!");
+                                        }
+                                        else {
+                                            for (int i = 0; i < ctr_arr_matkul; i++) {
+                                                System.out.println(matkul[i].toString());
+                                            }
+
+                                            System.out.print("Pilih ID MK : ");
+                                            String IDMKDicari = scanner.nextLine();
+
+                                            boolean MKDitemukan = false;
+                                            MataKuliah ditemukanMK = null;
+                                            for (int i = 0; i < ctr_arr_matkul; i++) {
+                                                if (matkul[i].getId().equals(IDMKDicari)) {
+                                                    MKDitemukan = true;
+                                                    ditemukanMK = matkul[i];
+                                                    break;
+                                                }
+                                            }
+
+                                            if (!MKDitemukan) {
+                                                System.out.println("Mata Kuliah dengan ID '" + IDMKDicari + "' tidak ditemukan!");
+                                            }
+                                            else {
+                                                boolean pengecekan = dosen[noIndexDosen].cekMatkulDiajar(ditemukanMK.getNamaMatkul());
+
+                                                if (pengecekan) {
+                                                    System.out.println("  " + dosen[noIndexDosen].getNama() + " sudah mengajar " + ditemukanMK.getNamaMatkul() + "! ");
+                                                }
+                                                else {
+                                                    dosen[noIndexDosen].setMatkulYangDiajar(ditemukanMK);
+                                                    dosen[noIndexDosen].setMKDiajar(1);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }    
                 }
