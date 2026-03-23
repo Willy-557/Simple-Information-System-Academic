@@ -492,10 +492,10 @@ public class Main {
                         Mahasiswa teraktif1 = mhs[0];
                         for (int i = 1; i < ctr_arr_mhs; i++) {
                             if (mhs[i].getSks() > teraktif1.getSks()) {
-                                teraktif = mhs[i];
+                                teraktif1 = mhs[i];
                             }
                         }
-                        System.out.println("  Mahasiswa Teraktif  : " + teraktif.getNama() + " (" + teraktif.getSks() + " SKS)");
+                        System.out.println("  Mahasiswa Teraktif  : " + teraktif1.getNama() + " (" + teraktif1.getSks() + " SKS)");
                     }
                     
                     if (ctr_arr_dosen == 0) {
