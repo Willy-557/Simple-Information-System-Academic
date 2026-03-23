@@ -28,6 +28,10 @@ public class Main {
         int ctr_arr_dosen = 0;
         int idDosen = 1;
         
+        StaffAkademik[] staff = new StaffAkademik[10];
+        int ctr_arr_staff = 0;
+        int idStaff = 1;
+        
         while (true) {
             System.out.println("==============================\n" +
                                 "          SIAKADU\n" +
@@ -183,6 +187,24 @@ public class Main {
                                 dosen[ctr_arr_dosen].cetak();
                                 ctr_arr_dosen++;
                                 idDosen++;
+                            }
+                            else if (menu2 == 3) {
+                                System.out.print("Nama         : ");
+                                String nama = scanner.nextLine();
+                                
+                                System.out.print("Usia         : ");
+                                int usia = scanner.nextInt();
+                                scanner.nextLine();
+                                
+                                System.out.print("Divisi       : ");
+                                String divisi = scanner.nextLine();
+                                
+                                String id = "STF-00" + idDosen;
+                                
+                                staff[ctr_arr_staff] = new StaffAkademik(divisi, id, nama, usia);
+                                staff[ctr_arr_staff].cetak();
+                                ctr_arr_staff++;
+                                idStaff++;
                             }
                         }
                     }   
