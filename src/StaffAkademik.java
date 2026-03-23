@@ -29,6 +29,11 @@ public class StaffAkademik extends Person {
         System.out.println("  Dokumen Diproses : " + dokDiproses);
     }
 
+    @Override
+    public String toString() {
+        return id + " | " + getNama() + " | Divisi: " + divisi + " | Dokumen: " + dokDiproses;
+    }
+
     public int getDokDiproses() {
         return dokDiproses;
     }
