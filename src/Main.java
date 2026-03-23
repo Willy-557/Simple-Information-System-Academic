@@ -112,6 +112,32 @@ public class Main {
                         }
                     }
                 }
+                else if (menu == 2) {
+                    while (true) {
+                        System.out.println("=== KELOLA CIVITAS ===\n" +
+                                            "  1. Daftarkan Mahasiswa\n" +
+                                            "  2. Daftarkan Dosen\n" +
+                                            "  3. Daftarkan Staf Akademik\n" +
+                                            "  4. Lihat Semua Civitas\n" +
+                                            "  0. Kembali");
+
+                        System.out.print(">> ");
+                        int menu2 = scanner.nextInt();
+
+                        if (menu2 == 0) {
+                                break;
+                            }
+                        else if (menu2 > 4 || menu2 < 0) {
+                            System.out.println("Error");
+                            continue;
+                        }
+                        else {
+                            if (menu2 == 1) {
+                                
+                            }
+                        }
+                    }   
+                }
             }
         }
     }
