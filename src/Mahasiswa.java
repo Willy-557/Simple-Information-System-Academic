@@ -16,7 +16,7 @@ public class Mahasiswa extends Person{
     private String prodi;
     
     private MatkulMahasiswa[] matkul;
-    private int matkul_count;
+    private int matkul_count = 0;
 
     public Mahasiswa(String id, int angkatan, String prodi, String nama, int usia) {
         super(nama, usia);
@@ -89,8 +89,9 @@ public class Mahasiswa extends Person{
         return matkul;
     }
 
-    public void setMatkul(MatkulMahasiswa[] matkul) {
-        this.matkul = matkul;
+    public void setMatkul(MatkulMahasiswa mk) {
+        matkul[matkul_count] = mk;
+        matkul_count++;
     }
 
     public int getMatkul_count() {
